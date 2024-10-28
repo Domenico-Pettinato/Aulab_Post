@@ -72,32 +72,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdownBlog" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
-                <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownBlog">
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Blog Classic </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Blog Grid with Sidebar </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Blog Grid Four Column </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Blog No Sidebar </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Blog Right Sidebar </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Single Post </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Single Post No Sidebar </a>
-                  </li>
-                </ul>
-              </li>
+
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownPages" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
                 <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownPages">
@@ -141,7 +116,36 @@
                 <a class="nav-link" href="{{route('register')}}">Register</a>
               </li>
               @endguest
+
+              <!-- Sezione per creare un articolo e logout-->
               @auth
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownBlog" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
+                <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownBlog">
+                  <li>
+                    <a href="{{route('articles.index')}}" class="dropdown-item item-anchor">Inserisci Articolo </a>
+                  </li>
+                  <li>
+                    <a href="index.html" class="dropdown-item item-anchor">Blog Grid with Sidebar </a>
+                  </li>
+                  <li>
+                    <a href="index.html" class="dropdown-item item-anchor">Blog Grid Four Column </a>
+                  </li>
+                  <li>
+                    <a href="index.html" class="dropdown-item item-anchor">Blog No Sidebar </a>
+                  </li>
+                  <li>
+                    <a href="index.html" class="dropdown-item item-anchor">Blog Right Sidebar </a>
+                  </li>
+                  <li>
+                    <a href="index.html" class="dropdown-item item-anchor">Single Post </a>
+                  </li>
+                  <li>
+                    <a href="index.html" class="dropdown-item item-anchor">Single Post No Sidebar </a>
+                  </li>
+                </ul>
+              </li>
+
               <li class="nav-item">
                 <a class="nav-link" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                 <form id="logout-form" action="{{route('logout')}}" method="POST" class="d-none">
