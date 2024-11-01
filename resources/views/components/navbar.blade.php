@@ -29,7 +29,7 @@
                   <li>
                     <a href="index.html" class="dropdown-item item-anchor">Home Layout 1</a>
                   </li>
-                  <li>
+                  <!-- <li>
                     <a href="index.html" class="dropdown-item item-anchor">Home Layout 2 </a>
                   </li>
                   <li>
@@ -37,16 +37,17 @@
                   </li>
                   <li>
                     <a href="index.html" class="dropdown-item item-anchor">Home Layout 4 </a>
-                  </li>
+                  </li> -->
                 </ul>
               </li>
+
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownShop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
                 <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownShop">
                   <li>
                     <a href="index.html" class="dropdown-item item-anchor">Shop Sidebar </a>
                   </li>
-                  <li>
+                  <!-- <li>
                     <a href="index.html" class="dropdown-item item-anchor">Shop Three Column </a>
                   </li>
                   <li>
@@ -69,7 +70,7 @@
                   </li>
                   <li>
                     <a href="index.html" class="dropdown-item item-anchor">Single Product V2 </a>
-                  </li>
+                  </li> -->
                 </ul>
               </li>
 
@@ -77,9 +78,9 @@
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownPages" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
                 <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownPages">
                   <li>
-                    <a href="index.html" class="dropdown-item item-anchor">About </a>
+                    <a href="{{ route('articles.index') }}" class="dropdown-item item-anchor">Read Article </a>
                   </li>
-                  <li>
+                  <!-- <li>
                     <a href="index.html" class="dropdown-item item-anchor">Cart </a>
                   </li>
                   <li>
@@ -105,9 +106,10 @@
                   </li>
                   <li>
                     <a href="index.html" class="dropdown-item item-anchor">Wishlist </a>
-                  </li>
+                  </li> -->
                 </ul>
               </li>
+
               @guest
               <li class="nav-item">
                 <a class="nav-link" href="{{route('login')}}">Login</a>
@@ -122,10 +124,11 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownBlog" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
                 <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownBlog">
-                  <li>
-                    <a href="{{route('articles.index')}}" class="dropdown-item item-anchor">Inserisci Articolo </a>
+                  <li class="nav-item">
+                    <a href="{{ route('articles.create') }}" class="nav-link">Create Article</a>
                   </li>
-                  <li>
+
+                  <!-- <li>
                     <a href="index.html" class="dropdown-item item-anchor">Blog Grid with Sidebar </a>
                   </li>
                   <li>
@@ -142,15 +145,13 @@
                   </li>
                   <li>
                     <a href="index.html" class="dropdown-item item-anchor">Single Post No Sidebar </a>
-                  </li>
+                  </li> -->
                 </ul>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                <form id="logout-form" action="{{route('logout')}}" method="POST" class="d-none">
-                  @csrf
-                </form>
+                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> @csrf </form>
               </li>
               @endauth
             </ul>

@@ -13,16 +13,17 @@ class ArticleController extends Controller
     public function index()
     {
         return view('articles.index', [
-            'articles' => Article::all()    
+            'articles' => Article::all()
         ]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
+        return view('articles.create');
     }
 
     /**
@@ -30,8 +31,31 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|min:3',
+            'body' => 'required|min:3', 
+            'image' => 'required',
+        ]);
+        
+
+        $article = Article::create([
+            'title' => $request->title,
+            'category_id' => $request->category,
+            'body' => $request->body,
+            'image' => $request->image,
+            
+        ]);
+
+        // Store the image if it was uploaded
+        // if ($request->hasFile('image')) {
+        //     $article->image = $request->file('image')->store('public/images');
+        //     $article->save();
+        // }
+
+        return redirect()->route('articles.index')->with('message', 'Article created successfully');
     }
+
+
 
     /**
      * Display the specified resource.
