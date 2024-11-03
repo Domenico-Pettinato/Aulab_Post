@@ -9,13 +9,14 @@
 </head>
 
 <body>
-    <x-navbar/>
+    <x-navbar />
     <main>
+        <h1 class="display-1 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8 mt-5 text-center">Ssc Bari Post</h1>
         <div class="min-vh-100">
             {{ $slot }}
         </div>
     </main>
-    <x-footer />
+    <x-footer/>
 </body>
 
 </html>

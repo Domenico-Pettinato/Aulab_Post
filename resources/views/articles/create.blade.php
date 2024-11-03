@@ -1,15 +1,23 @@
 <x-layout>
     <div class="container mt-5 d-flex justify-content-center">
-        <h1>Crea Articolo</h1>
+        <div class="col-6">
+            <h2 class="display-1 text-center">Crea Articolo</h2>
+
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
         <form method="POST" action="{{route('articles.store')}}" enctype="multipart/form-data">
             @csrf
 
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control" id="title" name="title">
-                @error ('title')
-                <spam class="text-danger">{{$message}}</spam>">
-                @enderror
             </div>
 
             <div class="mb-3">
@@ -19,9 +27,6 @@
                     <option value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
                 </select>
-                @error ('slug')
-                <spam class="text-danger">{{$message}}</spam>">
-                @enderror
             </div>
 
             <!-- <div class="mb-3">  
@@ -35,17 +40,11 @@
             <div class="mb-3">
                 <label for="body" class="form-label">Body</label>
                 <input type="text" class="form-control" id="body" name="body">
-                @error ('body')
-                <spam class="text-danger">{{$message}}</spam>">
-                @enderror
             </div>
 
             <div class="mb-3">
                 <label for="image" class="form-label">Image</label>
                 <input type="file" class="form-control" id="image" name="image">
-                @error ('image')
-                <spam class="text-danger">{{$message}}</spam>">
-                @enderror
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

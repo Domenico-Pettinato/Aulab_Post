@@ -74,6 +74,18 @@
                 </ul>
               </li>
 
+              @guest
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('login')}}">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('register')}}">Register</a>
+              </li>
+              @endguest
+
+              <!-- Sezione per vedere tutti gli articoli creare un articolo e logout-->
+              @auth
+
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownPages" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
                 <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownPages">
@@ -110,17 +122,6 @@
                 </ul>
               </li>
 
-              @guest
-              <li class="nav-item">
-                <a class="nav-link" href="{{route('login')}}">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{route('register')}}">Register</a>
-              </li>
-              @endguest
-
-              <!-- Sezione per creare un articolo e logout-->
-              @auth
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownBlog" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
                 <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownBlog">
@@ -161,14 +162,14 @@
 
       <div class="col-3 col-lg-auto">
         <ul class="list-unstyled d-flex m-0">
-          <li class="d-none d-lg-block">
+          <!-- <li class="d-none d-lg-block">
             <a href="index.html" class="text-uppercase mx-3">Wishlist <span class="wishlist-count">(0)</span>
             </a>
           </li>
           <li class="d-none d-lg-block">
             <a href="index.html" class="text-uppercase mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">Cart <span class="cart-count">(0)</span>
             </a>
-          </li>
+          </li> -->
           <li class="d-lg-none">
             <a href="#" class="mx-2">
               <svg width="24" height="24" viewBox="0 0 24 24">

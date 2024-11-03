@@ -1,9 +1,27 @@
 <x-layout>
-    <div class="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <h1 class="text-5xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white md:text-[5rem]">Laravel</h1>
-
-        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-            <h1 class="display-1">Ssc Bari Post</h1>
+    <div class="container mt-5">
+        <div class="row">
+            <!-- card -->
+            @foreach ($articles as $article)
+            <div class="col-md-6 col-12 mb-4 d-flex justify-content-center">
+                <div class="card" style="width: 18rem; border: 1px solid #ccc;">
+                    <img src="https://picsum.photos/{{ 300 + $article->id }}" class="card-img-top" alt="Immagine di esempio">
+                    <div class="card-body">
+                        <h5 class="card-title">{{$article->title}}</h5>
+                        <p class="card-text">Categoria:
+                            <a href="{{ route('articles.bycategory', $article->category) }}">{{$article->category->name}}</a>
+                        </p>
+                        <p class="card-text">Autore:
+                            <a href="{{ route('articles.byuser', $article->user) }}">{{$article->user->name}}</a>
+                        </p>
+                        <p class="card-text">{{$article->body}}</p>
+                    </div>
+                    <div class="card-footer text-center">   
+                    <a href="{{ route('articles.show', ['article' => $article->id]) }}" class="btn btn-primary">Leggi Articolo</a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
         </div>
     </div>
-</x-layput>
+</x-layout>

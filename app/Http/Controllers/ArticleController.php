@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Category;
+use App\Models\User;
+use Exception;
+use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -12,9 +16,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('articles.index', [
-            'articles' => Article::all()
-        ]);
+        $articles = Article::orderby('created_at', 'desc')->paginate(4);
+        return view('articles.index', compact('articles'));
     }
 
     /**
@@ -40,7 +43,7 @@ class ArticleController extends Controller
 
         $article = Article::create([
             'title' => $request->title,
-            'category_id' => $request->category,
+            'category_id' => $request->category,  // richiama la category con il nome
             'body' => $request->body,
             'image' => $request->image,
             
@@ -62,7 +65,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return view('articles.show', compact(['article']));
     }
 
     /**
@@ -87,5 +90,24 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         //
+    }
+
+    public function byCategory(Category $category)
+    {
+        $articles = $category->articles()->orderby('created_at', 'desc')->get();
+        return view('articles.bycategory', compact('category', 'articles'));
+    }
+
+    public function byUser(User $user)
+    {
+        $articles = $user->articles()->orderby('created_at', 'desc')->get();
+        return view('articles.byuser', compact('user', 'articles'));
+    }
+
+    public static function middleware()
+    {
+        return [
+            new Middleware ('auth', except: ['index', 'show', 'byCategory', 'byUser'])
+        ];
     }
 }
