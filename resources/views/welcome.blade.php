@@ -1,10 +1,15 @@
 <x-layout>
+    @if (session ('alert'))
+    <div class="alert alert-danger">
+        {{session('alert')}}
+    </div>    
+    @endif
     <div class="container mt-5">
         <div class="row">
             <!-- card -->
             @foreach ($articles as $article)
             <div class="col-md-6 col-12 mb-4 d-flex justify-content-center">
-                <div class="card" style="width: 18rem; border: 1px solid #ccc;">
+                <div class="card " style="width: 18rem; border: 1px solid #ccc;">
                     <img src="https://picsum.photos/{{ 300 + $article->id }}" class="card-img-top" alt="Immagine di esempio">
                     <div class="card-body">
                         <h5 class="card-title">{{$article->title}}</h5>
@@ -16,8 +21,8 @@
                         </p>
                         <p class="card-text">{{$article->body}}</p>
                     </div>
-                    <div class="card-footer text-center">   
-                    <a href="{{ route('articles.show', ['article' => $article->id]) }}" class="btn btn-primary">Leggi Articolo</a>
+                    <div class="card-footer text-center">
+                        <a href="{{ route('articles.show', ['article' => $article->id]) }}" class="btn btn-primary">Leggi Articolo</a>
                     </div>
                 </div>
             </div>

@@ -29,15 +29,13 @@
                   <li>
                     <a href="index.html" class="dropdown-item item-anchor">Home Layout 1</a>
                   </li>
-                  <!-- <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Home Layout 2 </a>
-                  </li>
+
+                  @if (Auth::check() && Auth::user()->is_admin)
                   <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Home Layout 3 </a>
+                    <a href="{{ route('admin.dashboard') }}" class="dropdown-item item-anchor">Admin Dashboard</a>
                   </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Home Layout 4 </a>
-                  </li> -->
+                  @endif
+
                 </ul>
               </li>
 
@@ -45,8 +43,10 @@
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownShop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
                 <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownShop">
                   <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Shop Sidebar </a>
+                    <a href="{{route('candidature')}}" class="dropdown-item item-anchor">Lavora con noi </a>
                   </li>
+
+
                   <!-- <li>
                     <a href="index.html" class="dropdown-item item-anchor">Shop Three Column </a>
                   </li>
@@ -85,7 +85,6 @@
 
               <!-- Sezione per vedere tutti gli articoli creare un articolo e logout-->
               @auth
-
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdownPages" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
                 <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownPages">
