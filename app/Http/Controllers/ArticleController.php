@@ -8,6 +8,7 @@ use App\Models\User;
 use Exception;
 use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -16,10 +17,20 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::orderby('created_at', 'desc')->paginate(4);
+        $articles = Article::where('is_accepted', true)->orderby('created_at', 'desc')->paginate(6);
         return view('articles.index', compact('articles'));
     }
 
+    public function byCategory(Category $category)
+    {
+        $articles = $category->articles()->where('is_accepted', true)->orderby('created_at', 'desc')->paginate(6);
+        return view('articles.bycategory', compact('category', 'articles'));
+    }
+    public function byUser(User $user)
+    {
+        $articles = $user->articles()->where('is_accepted', true)->orderby('created_at', 'desc')->paginate(6);
+        return view('articles.byuser', compact('user', 'articles'));
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -34,31 +45,30 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        // Validazione dei dati
         $request->validate([
-            'title' => 'required|min:3',
-            'body' => 'required|min:3', 
-            'image' => 'required',
-        ]);
-        
-
-        $article = Article::create([
-            'title' => $request->title,
-            'category_id' => $request->category,  // richiama la category con il nome
-            'body' => $request->body,
-            'image' => $request->image,
-            
+            'title' => 'required|string|max:255',
+            'category' => 'required|exists:categories,id',
+            'body' => 'required|string',
+            'image' => 'nullable|image|max:2048', // Aggiungi validazioni per l'immagine
         ]);
 
-        // Store the image if it was uploaded
-        // if ($request->hasFile('image')) {
-        //     $article->image = $request->file('image')->store('public/images');
-        //     $article->save();
-        // }
+        // Crea l'articolo associando l'utente loggato
+        $article = new Article();
+        $article->title = $request->title;
+        $article->category_id = $request->category;
+        $article->body = $request->body;
+        $article->user_id = Auth::user()->id; // Associa l'utente loggato
 
-        return redirect()->route('articles.index')->with('message', 'Article created successfully');
+        // Gestisci l'immagine (se presente)
+        if ($request->hasFile('image')) {
+            $article->image = $request->file('image')->store('articles_images', 'public');
+        }
+
+        // Salva l'articolo
+        $article->save();
+        return redirect()->route('homepage')->with('message', 'Articolo creato con successo in revisione');
     }
-
-
 
     /**
      * Display the specified resource.
@@ -92,22 +102,10 @@ class ArticleController extends Controller
         //
     }
 
-    public function byCategory(Category $category)
-    {
-        $articles = $category->articles()->orderby('created_at', 'desc')->get();
-        return view('articles.bycategory', compact('category', 'articles'));
-    }
-
-    public function byUser(User $user)
-    {
-        $articles = $user->articles()->orderby('created_at', 'desc')->get();
-        return view('articles.byuser', compact('user', 'articles'));
-    }
-
     public static function middleware()
     {
         return [
-            new Middleware ('auth', except: ['index', 'show', 'byCategory', 'byUser'])
+            new Middleware('auth', except: ['index', 'show', 'byCategory', 'byUser'])
         ];
     }
 }

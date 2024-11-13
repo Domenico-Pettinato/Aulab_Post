@@ -29,6 +29,8 @@ class User extends Authenticatable
         'is_admin',
         'is_revisor',
         'is_writer',
+        'role_requested', // Ruolo richiesto
+        'role_status',    // Stato della candidatura
     ];
 
     /**
@@ -51,6 +53,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'role_status' => 'string',
         ];
     }
 }

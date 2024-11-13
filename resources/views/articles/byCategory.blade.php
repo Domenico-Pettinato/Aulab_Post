@@ -12,8 +12,8 @@
                         <h5 class="card-title">{{ $article->title }}</h5>
                         <p class="card-text">Categoria: {{ $article->category->name }}</p>
                         <p class="card-text">Autore: {{ $article->user->name }}</p>
-                        <p class="card-text">{{ $article->body }}.</p>
-                        <a href="{{ route('articles.show', ['article' => $article->id]) }}" class="btn btn-primary">Dettaglio Articolo</a>
+                        <!-- <p class="card-text">{{ $article->body }}.</p> -->
+                        <a href="{{ route('articles.show', ['article' => $article->id]) }}" class="btn btn-primary">Leggi Articolo</a>
                     </div>
                 </div>
             </div>

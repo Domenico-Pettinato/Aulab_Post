@@ -1,6 +1,7 @@
 <x-layout>
     <div class="container mt-5">
         <div class="row">
+
             <!-- card -->
             @foreach ($articles as $article)
             <div class="col-md-6 col-12 mb-4 d-flex justify-content-center">
@@ -14,7 +15,7 @@
                         <p class="card-text">Autore:
                             <a href="{{ route('articles.byuser', $article->user) }}">{{$article->user->name}}</a>
                         </p>
-                        <p class="card-text">{{$article->body}}.</p>
+                        <!-- <p class="card-text">{{$article->body}}</p> -->
                     </div>
                     <div class="card-footer text-center">
                         <a href="{{route('articles.show', ['article' => $article->id])}}" class="btn btn-primary">Leggi Articolo</a>
@@ -22,6 +23,7 @@
                 </div>
             </div>
             @endforeach
+            
             <!-- Paginazione -->
             <div class="d-flex justify-content-center mt-5">
                 {{ $articles->links('pagination::bootstrap-4') }} <!-- Usa lo stile di Bootstrap 4 -->

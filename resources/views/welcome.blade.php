@@ -1,9 +1,22 @@
 <x-layout>
+    <!-- Messaggio di errore -->
     @if (session ('alert'))
     <div class="alert alert-danger">
         {{session('alert')}}
-    </div>    
+    </div>
     @endif
+
+<!-- Messaggio di conferma  -->
+@if (session('message'))
+    <div class="d-flex justify-content-center mt-3">
+        <div class="alert alert-success alert-dismissible fade show w-auto" style="max-width: 500px;" role="alert">
+            {{ session('message') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+@endif
+
+
     <div class="container mt-5">
         <div class="row">
             <!-- card -->
@@ -19,7 +32,7 @@
                         <p class="card-text">Autore:
                             <a href="{{ route('articles.byuser', $article->user) }}">{{$article->user->name}}</a>
                         </p>
-                        <p class="card-text">{{$article->body}}</p>
+                        <!-- <p class="card-text">{{$article->body}}</p> -->
                     </div>
                     <div class="card-footer text-center">
                         <a href="{{ route('articles.show', ['article' => $article->id]) }}" class="btn btn-primary">Leggi Articolo</a>

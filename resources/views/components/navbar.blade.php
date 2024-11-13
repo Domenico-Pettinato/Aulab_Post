@@ -36,42 +36,17 @@
                   </li>
                   @endif
 
+                  @if (Auth::check() && Auth::user()->is_revisor)
+                  <li>
+                    <a href="{{ route('revisor.dashboard') }}" class="dropdown-item item-anchor">Revisor Dashboard</a>
+                  </li>
+                  @endif
+
                 </ul>
               </li>
 
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdownShop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
-                <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownShop">
-                  <li>
-                    <a href="{{route('candidature')}}" class="dropdown-item item-anchor">Lavora con noi </a>
-                  </li>
-
-
-                  <!-- <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Shop Three Column </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Shop Three Column Wide </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Shop Four Column </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Shop Four Column Wide </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Shop Six Column </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Shop Six Column Wide </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Single Product </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Single Product V2 </a>
-                  </li> -->
-                </ul>
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('candidature')}}">Work4Us</a>
               </li>
 
               @guest
