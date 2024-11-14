@@ -7,11 +7,15 @@
         </div>
     </div>
 
-    @if (session('message'))
-        <div class="alert alert-success mt-1">
+  <!-- Messaggio di conferma  -->
+@if (session('message'))
+    <div class="d-flex justify-content-center mt-3">
+        <div class="alert alert-success alert-dismissible fade show w-auto" style="max-width: 500px;" role="alert">
             {{ session('message') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-    @endif
+    </div>
+@endif
 
     <div class="container-fluid p-5 bg-secondary-subtle text-center mt-5">
         <div class="row justify-content-center">

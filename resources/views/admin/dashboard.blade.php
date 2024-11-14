@@ -14,12 +14,15 @@
     </div>
     @endif
     
-    <!-- Messaggio di conferma candidatura -->
-    @if (session('message'))
-    <div class="alert alert-success mt-1">
-        {{ session('message') }}
+  <!-- Messaggio di conferma  -->
+@if (session('message'))
+    <div class="d-flex justify-content-center mt-3">
+        <div class="alert alert-success alert-dismissible fade show w-auto" style="max-width: 500px;" role="alert">
+            {{ session('message') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     </div>
-    @endif
+@endif
 
     {{-- @dd($adminRequest); --}}
 

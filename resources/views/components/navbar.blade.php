@@ -26,10 +26,7 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" href="#" id="dropdownHome" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
                 <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownHome">
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Home Layout 1</a>
-                  </li>
-
+                 
                   @if (Auth::check() && Auth::user()->is_admin)
                   <li>
                     <a href="{{ route('admin.dashboard') }}" class="dropdown-item item-anchor">Admin Dashboard</a>
@@ -66,33 +63,6 @@
                   <li>
                     <a href="{{ route('articles.index') }}" class="dropdown-item item-anchor">Read Article </a>
                   </li>
-                  <!-- <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Cart </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Checkout </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Coming Soon </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Contact </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Error Page </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">FAQs </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">My Account </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Order Tracking </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Wishlist </a>
-                  </li> -->
                 </ul>
               </li>
 
@@ -102,31 +72,15 @@
                   <li class="nav-item">
                     <a href="{{ route('articles.create') }}" class="nav-link">Create Article</a>
                   </li>
-
-                  <!-- <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Blog Grid with Sidebar </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Blog Grid Four Column </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Blog No Sidebar </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Blog Right Sidebar </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Single Post </a>
-                  </li>
-                  <li>
-                    <a href="index.html" class="dropdown-item item-anchor">Single Post No Sidebar </a>
-                  </li> -->
                 </ul>
               </li>
 
+              <!-- Logout Button -->
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> @csrf </form>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+                </form>
               </li>
               @endauth
             </ul>
@@ -167,8 +121,6 @@
           </li>
         </ul>
       </div>
-
     </div>
-
   </div>
 </nav>

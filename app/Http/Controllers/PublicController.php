@@ -38,4 +38,11 @@ class PublicController extends BaseController
 
         return redirect()->route('homepage')->with('message', 'Candidatura inviata con successo!');
     }
+
+    public function articleSearch(Request $request)
+    {
+        $query = $request->input('query');
+        $articles = Article::search($query)->where('is_accepted', true)->orderBy('created_at', 'desc')->get();
+        return view('articles.search-index', compact('articles', 'query'));
+    }
 }

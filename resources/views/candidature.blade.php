@@ -43,14 +43,14 @@
                                 </div>
 
                                 <!-- Bottone Invia Candidatura -->
-                                <button class="btn btn-primary w-100" type="submit">Invia Candidatura</button>
+                                <button class="btn btn-outline-primary btn-sm w-100" type="submit">Invia Candidatura</button>
                             </form>
                         </div>
                     </div>
                     
                     <!-- Bottone Indietro -->
                     <div class="col-12 text-center mt-4">
-                        <a href="{{ route('homepage') }}" class="btn btn-outline-secondary">Indietro alla Home</a>
+                        <a href="{{ route('homepage') }}" class="btn btn-outline-secondary btn-sm">Indietro alla Home</a>
                     </div>
                 </div>
             </div>

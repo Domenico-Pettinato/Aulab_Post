@@ -53,3 +53,6 @@ Route::middleware('revisor')->group(function () {
     Route::post ('revisor/{article}/reject', [RevisorController::class, 'rejectArticle'])->name('revisor.rejectArticle');
     Route::post ('revisor/{article}/undo', [RevisorController::class, 'undoArticle'])->name('revisor.undoArticle');
 });
+
+// rotta della barra di ricerca
+Route::get('/article/search', [PublicController::class, 'articleSearch'])->name('article.search');

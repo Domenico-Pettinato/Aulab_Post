@@ -15,7 +15,7 @@
                     @if (Auth::user() && Auth::user()->is_revisor)
                         <!-- Pulsanti per revisore -->
                         <div class="card-footer text-center bg-light">
-                            <a href="{{ route('revisor.dashboard') }}" class="btn btn-outline-primary mb-2">Torna alla lista degli articoli</a>
+                            <a href="{{ route('revisor.dashboard') }}" class="btn btn-outline-primary btn-sm mb-2">Torna alla lista degli articoli</a>
                             
                             <div class="d-flex justify-content-center gap-2 mt-3">
                                 <form action="{{ route('revisor.acceptArticle', $article) }}" method="POST">
@@ -32,7 +32,7 @@
                     @else
                         <!-- Pulsante per gli utenti non revisori -->
                         <div class="card-footer text-center bg-light">
-                            <a href="{{ route('articles.index') }}" class="btn btn-outline-primary mb-2">Torna alla lista degli articoli</a>
+                            <a href="{{ route('articles.index') }}" class="btn btn-outline-primary btn-sm mb-2">Torna alla lista degli articoli</a>
                         </div>
                     @endif
                 </div>
