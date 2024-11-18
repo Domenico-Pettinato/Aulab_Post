@@ -23,6 +23,15 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
+                
+                <div class="mb-3">
+                    <label for="tags" class="form-label">Tags</label>
+                    <input type="text" class="form-control @error('title') is-invalid @enderror" id="tags" name="tags" value="{{ old('tags') }}" required>
+                    <span class="form-text">Inserisci i tag separati da virgole</span>
+                    @error('tags')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
 
                 <div class="mb-3">
                     <label for="category" class="form-label">Categoria</label>
@@ -56,7 +65,7 @@
                 </div>
 
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-primary btn-lg">Invia</button>
+                    <button type="submit" class="btn btn-outline-secondary btn-sm">Invia</button>
                 </div>
             </form>
         </div>

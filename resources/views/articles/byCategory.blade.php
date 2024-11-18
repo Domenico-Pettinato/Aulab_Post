@@ -10,8 +10,26 @@
                     <img src="https://picsum.photos/{{ 300 + $article->id }}" class="card-img-top" alt="Immagine di esempio">
                     <div class="card-body">
                         <h5 class="card-title">{{ $article->title }}</h5>
-                        <p class="card-text">Categoria: {{ $article->category->name }}</p>
+
+                        @if ('$article->category')
+                        <p class="card-text small text-secondary">
+                            Categoria:
+                            <a href="{{ route('articles.bycategory', $article->category) }}" class="text-decoration-none text-capitalize">{{ $article->category->name }}</a>
+                        </p>
+                        @else
+                        <p class="card-text small text-secondary">Nessuna categoria</p>
+                        @endif
+                        <p class="small text-muted my-0">
+                            @foreach ($article->tags as $tag)
+                            #{{ $tag->name }}
+                            @endforeach
+
                         <p class="card-text">Autore: {{ $article->user->name }}</p>
+                        <p class="card-text small text-muted">Tag:
+                            @foreach ($article->tags as $tag)
+                            #{{ $tag->name }}
+                            @endforeach
+                        </p>
                         <!-- <p class="card-text">{{ $article->body }}.</p> -->
                         <a href="{{ route('articles.show', ['article' => $article->id]) }}" class="btn btn-outline-primary btn-sm">Leggi Articolo</a>
                     </div>

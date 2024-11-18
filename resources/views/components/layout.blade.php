@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- metadati per SEO -->
+    <title>{{ $metaTitle ?? 'Titolo di default' }}</title>
+    <meta name="description" content="{{ $metaDescription ?? 'Descrizione di default' }}">
+    <meta name="keywords" content="{{ $metaKeywords ?? '' }}">
     <!-- Collegamento di Vite per gli asset principali -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-    <!-- Collegamento alle icone di Bootstrap (preferibile metterlo nel <head>) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
     <title>BariPost</title>
 </head>
 
@@ -28,9 +28,9 @@
                     class="form-control"
                     placeholder="Cerca tra gli articoli..."
                     aria-label="Search"
-                    style="height: 45px; font-size: 1rem; border-radius: 25px 0 0 25px; padding-left: 35px;">
+                    style="height: 45px; font-size: 1.4rem; border-radius: 25px 25px 0 0; padding-left: 35px; border-color: #4285f4;">
                 <!-- Icona della lente, posizionata dentro il campo di input -->
-                <i class="bi bi-search position-absolute" style="left: 10px; top: 50%; transform: translateY(-50%); color: #aaa;"></i>
+                <i class="bi bi-search position-absolute" style="left: 10px; top: 43%; transform: translateY(-50%); color: #aaa;"></i>
             </div>
         </form>
 
@@ -38,8 +38,6 @@
             {{ $slot }}
         </div>
     </main>
-
     <x-footer />
 </body>
-
 </html>

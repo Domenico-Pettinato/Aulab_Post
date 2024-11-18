@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Tag;
 use App\Models\User;
 use Exception;
 use GuzzleHttp\Middleware;
@@ -50,6 +51,7 @@ class ArticleController extends Controller
             'title' => 'required|string|max:255',
             'category' => 'required|exists:categories,id',
             'body' => 'required|string',
+            'tags' => 'required|string',
             'image' => 'nullable|image|max:2048', // Aggiungi validazioni per l'immagine
         ]);
 
@@ -65,8 +67,25 @@ class ArticleController extends Controller
             $article->image = $request->file('image')->store('articles_images', 'public');
         }
 
-        // Salva l'articolo
+        // Salva l'articolo nel database per ottenere l'ID
         $article->save();
+
+        // Aggiungi i tag
+        $tags = explode(',', $request->tags);
+        foreach ($tags as $i => $tag) {
+            $tags[$i] = trim($tag);
+        }
+
+        foreach ($tags as $tag) {
+            // Usa updateOrCreate per creare o recuperare il tag
+            $newTag = Tag::updateOrCreate([
+                'name' => strtolower($tag),
+            ]);
+
+            // Associa il tag all'articolo ora che è stato salvato
+            $article->tags()->attach($newTag->id);
+        }
+
         return redirect()->route('homepage')->with('message', 'Articolo creato con successo in revisione');
     }
 
@@ -109,9 +128,10 @@ class ArticleController extends Controller
         ];
     }
 
-    public function articleSearch(Request $request) {
+    public function articleSearch(Request $request)
+    {
         $query = $request->input('query');
         $articles = Article::search($query)->where('is_accepted', true)->orderBy('created_at', 'desc')->get();
-        return view('articles.search-index', compact('articles','query'));
+        return view('articles.search-index', compact('articles', 'query'));
     }
 }

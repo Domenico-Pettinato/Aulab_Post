@@ -13,18 +13,41 @@
         {{session('alert')}}
     </div>
     @endif
-    
-  <!-- Messaggio di conferma  -->
-@if (session('message'))
+
+    <!-- Messaggio di conferma  -->
+    @if (session('message'))
     <div class="d-flex justify-content-center mt-3">
         <div class="alert alert-success alert-dismissible fade show w-auto" style="max-width: 500px;" role="alert">
             {{ session('message') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     </div>
-@endif
+    @endif
 
     {{-- @dd($adminRequest); --}}
+
+    <div class="container-fluid p-5 bg-secondary-subtle text-center mt-5">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h1 class="display-2">Tutti i Tags</h1>
+                <x-metainfo-table :metaInfos="$tags" metaType="tags" />
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid p-5 bg-secondary-subtle text-center mt-5">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h1 class="display-2">Tutte le Categorie</h1>
+                <form action="{{ route('admin.storeCategory') }}" method="POST">
+                    @csrf
+                    <input type="text" name="name" placeholder="Nuova categoria" class="form-control w-50 d-inline">
+                    <button type="submit" class="btn btn-primary">Crea</button>
+                </form>
+                <x-metainfo-table :metaInfos="$categories" metaType="categorie" />
+            </div>
+        </div>
+    </div>
 
     <div class="container-fluid p-5 bg-secondary-subtle text-center mt-5">
         <div class="row justify-content-center">

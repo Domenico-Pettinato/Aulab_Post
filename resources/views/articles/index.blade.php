@@ -10,14 +10,30 @@
                         
                         <div class="card-body">
                             <h5 class="card-title text-truncate">{{ $article->title }}</h5>
-                            <p class="card-text small text-secondary">
-                                <strong>Categoria:</strong>
-                                <a href="{{ route('articles.bycategory', $article->category) }}" class="text-decoration-none">{{ $article->category->name }}</a>
+                            
+                            @if ('$article->category')
+                        <p class="card-text small text-secondary">
+                            Categoria:
+                            <a href="{{ route('articles.bycategory', $article->category) }}" class="text-decoration-none text-capitalize">{{ $article->category->name }}</a>
+                        </p>
+                        @else
+                        <p class="card-text small text-secondary">Nessuna categoria</p>
+                        @endif
+                        
+                        <p class= "small text-muted my-0">
+                            @foreach ($article->tags as $tag)
+                            #{{ $tag->name }}
+                            @endforeach
                             </p>
                             <p class="card-text small text-muted">
                                 <strong>Autore:</strong>
                                 <a href="{{ route('articles.byuser', $article->user) }}" class="text-primary text-decoration-none">{{ $article->user->name }}</a>
                             </p>
+                            <p class="card-text small text-muted">Tag:
+                            @foreach ($article->tags as $tag)
+                            #{{ $tag->name }}
+                            @endforeach
+                        </p>
                         </div>
                         
                         <div class="card-footer text-center border-0 bg-light">
