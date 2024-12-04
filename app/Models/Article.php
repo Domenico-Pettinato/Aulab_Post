@@ -32,7 +32,7 @@ class Article extends Model
     // relazioni
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(\App\Models\User::class);
     }
 
     public function category()
@@ -45,5 +45,8 @@ class Article extends Model
         return $this->belongsToMany(Tag::class);
     }
 
-
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
 }

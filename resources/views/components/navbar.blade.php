@@ -23,7 +23,8 @@
 
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 gap-1 gap-md-5 pe-3">
-              <li class="nav-item dropdown">
+             
+            <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" href="#" id="dropdownHome" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
                 <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownHome">
                  
@@ -39,6 +40,11 @@
                   </li>
                   @endif
 
+                  @auth
+                  <li>
+                    <a href="{{ route('writer.dashboard') }}" class="dropdown-item item-anchor">Writer Dashboard</a>
+                  </li>
+                  @endauth
                 </ul>
               </li>
 

@@ -5,7 +5,7 @@
         <div class="col-md-3 col-sm-6">
           <div class="footer-menu footer-menu-001">
             <div class="footer-intro mb-4">
-              <a href="index.html">
+              <a href="">
                 <img src="images/main-logo.png" alt="logo">
               </a>
             </div>

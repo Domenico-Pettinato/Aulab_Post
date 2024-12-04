@@ -10,6 +10,7 @@ use Exception;
 use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -102,7 +103,10 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        if (Auth::user()->id == $article->user_id) {
+            return view('articles.edit', compact('article'));
+        }
+        return redirect()->route('homepage')->with('alert', 'Non sei autorizzato');
     }
 
     /**
@@ -110,7 +114,45 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'category' => 'required|exists:categories,id',
+            'body' => 'required|string',
+            'tags' => 'required|string',
+            'image' => 'nullable|image|max:2048', // Aggiungi validazioni per l'immagine
+        ]);
+
+        $article->update(
+            [
+                'title' => $request->title,
+                'category_id' => $request->category,
+                'body' => $request->body,
+            ]
+        );
+
+        //   mofifica immagine //
+        if ($request->hasFile('image')) {
+            if ($article->image) {
+                Storage::disk('public')->delete($article->image);
+            }
+            $article->update([
+                'image' => $request->file('image')->store('articles_images', 'public'),
+            ]);
+        }
+
+        // Aggiorna i tag
+        $tags = explode(',', $request->tags);
+        foreach ($tags as $i => $tag) {
+            $tags[$i] = trim($tag);
+        }
+        $article->tags()->detach();
+        foreach ($tags as $tag) {
+            $newTag = Tag::updateOrCreate([
+                'name' => strtolower($tag),
+            ]);
+            $article->tags()->attach($newTag->id);
+        }
+        return redirect()->route('homepage')->with('message', 'Articolo modificato con successo');
     }
 
     /**
@@ -118,7 +160,14 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        if (Auth::user()->id == $article->user_id) {
+            foreach ($article->tags as $tag) {
+                $article->tags()->detach($tag->id);
+            }
+            $article->delete();
+            return redirect()->route('homepage')->with('message', 'Articolo cancellato con successo');
+        }
+        return redirect()->route('homepage')->with('alert', 'Non sei autorizzato');
     }
 
     public static function middleware()

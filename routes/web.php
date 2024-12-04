@@ -6,6 +6,7 @@ use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Controllers\RevisorController;
+use App\Http\Controllers\WriterController;
 
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 
@@ -61,3 +62,14 @@ Route::middleware('revisor')->group(function () {
 
 // rotta della barra di ricerca
 Route::get('/article/search', [PublicController::class, 'articleSearch'])->name('article.search');
+
+// rotta per il writer
+Route::middleware('writer')->group(function () {
+    
+    
+});
+
+Route::get('/writer/Dashboard', [WriterController::class, 'dashboard'])->name('writer.dashboard');
+Route::get(('/article/edit/{article}'), [WriterController::class, 'edit'])->name('article.edit');
+Route::put(('/article/update/{article}'), [WriterController::class, 'update'])->name('article.update');
+Route::delete(('/article/destroy/{article}'), [WriterController::class, 'destroy'])->name('article.destroy');
