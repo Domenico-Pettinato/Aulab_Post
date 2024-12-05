@@ -11,6 +11,7 @@ use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
@@ -62,6 +63,7 @@ class ArticleController extends Controller
         $article->category_id = $request->category;
         $article->body = $request->body;
         $article->user_id = Auth::user()->id; // Associa l'utente loggato
+        $article->slug = Str::slug($request->title);
 
         // Gestisci l'immagine (se presente)
         if ($request->hasFile('image')) {
@@ -93,11 +95,14 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Article $article)
+    public function show($slug)
     {
-        return view('articles.show', compact(['article']));
+        // Cerca l'articolo usando lo slug e carica i tag associati
+        $article = Article::where('slug', $slug)->with('tags')->firstOrFail();
+    
+        return view('articles.show', compact('article'));
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      */
@@ -127,6 +132,7 @@ class ArticleController extends Controller
                 'title' => $request->title,
                 'category_id' => $request->category,
                 'body' => $request->body,
+                'slug' => Str::slug($request->title),
             ]
         );
 

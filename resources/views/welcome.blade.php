@@ -37,16 +37,12 @@
                         @else
                         <p class="card-text small text-secondary">Nessuna categoria</p>
                         @endif
-                        
-                        <p class= "small text-muted my-0">
-                            @foreach ($article->tags as $tag)
-                            #{{ $tag->name }}
-                            @endforeach
-                        </p>
+                    
                         <p class="card-text small text-muted">
                             Autore:
                             <a href="{{ route('articles.byuser', $article->user) }}" class="text-primary text-decoration-none">{{ $article->user->name }}</a>
                         </p>
+                        
                         <p class="card-text small text-muted">Tag:
                             @foreach ($article->tags as $tag)
                             #{{ $tag->name }}
@@ -55,7 +51,7 @@
                     </div>
 
                     <div class="card-footer bg-white text-center">
-                        <a href="{{ route('articles.show', ['article' => $article->id]) }}" class="btn btn-outline-primary btn-sm">Leggi Articolo</a>
+                        <a href="{{ route('articles.show', ['article' => $article->slug]) }}" class="btn btn-outline-primary btn-sm">Leggi Articolo</a>
                     </div>
                 </div>
             </div>
