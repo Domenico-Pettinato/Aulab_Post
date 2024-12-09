@@ -50,7 +50,7 @@
                     
                     <!-- Bottone Indietro -->
                     <div class="col-12 text-center mt-4">
-                        <a href="{{ route('homepage') }}" class="btn btn-outline-secondary btn-sm">Indietro alla Home</a>
+                        <a href="{{ route('homepage') }}" class="btn btn-outline-secondary btn-sm">Torna alla Home</a>
                     </div>
                 </div>
             </div>

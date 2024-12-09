@@ -23,11 +23,11 @@
 
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 gap-1 gap-md-5 pe-3">
-             
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle active" href="#" id="dropdownHome" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="/" id="dropdownHome" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
                 <ul class="dropdown-menu list-unstyled" aria-labelledby="dropdownHome">
-                 
+
                   @if (Auth::check() && Auth::user()->is_admin)
                   <li>
                     <a href="{{ route('admin.dashboard') }}" class="dropdown-item item-anchor">Admin Dashboard</a>
@@ -40,11 +40,11 @@
                   </li>
                   @endif
 
-                  @auth
+                  @if (Auth::check() && Auth::user()->is_writer)
                   <li>
                     <a href="{{ route('writer.dashboard') }}" class="dropdown-item item-anchor">Writer Dashboard</a>
                   </li>
-                  @endauth
+                  @endif
                 </ul>
               </li>
 

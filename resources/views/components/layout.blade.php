@@ -18,7 +18,7 @@
     <x-navbar />
     <main>
         <div class="text-center py-5 mt-5"
-            style="background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://via.placeholder.com/1920x600?text=Impastando.it') no-repeat center; background-size: cover;">
+            style="background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.255)), url('https://via.placeholder.com/1920x600?text=') no-repeat center; background-size: cover;">
             <!-- <h1 class="display-1 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8 mt-5 text-center">Impastando.it</h1> -->
 
             <!-- Barra di ricerca in stile Edge -->
@@ -30,9 +30,10 @@
                         class="form-control"
                         placeholder="Cerca tra gli articoli..."
                         aria-label="Search"
-                        style="height: 45px; font-size: 1.4rem; border-radius: 25px 25px 0 0; padding-left: 35px; border-color: #4285f4;">
+                        style="height: 45px; font-size: 1.4rem; border-radius: 25px 25px 25px 25px; padding-left: 35px; border-color: #4285f4;">
                     <!-- Icona della lente, posizionata dentro il campo di input -->
                     <i class="bi bi-search position-absolute" style="left: 10px; top: 43%; transform: translateY(-50%); color: #aaa;"></i>
+                    <button type="submit" class="btn btn-primary" style="height: 45px; font-size: 1.4rem; border-radius: 0 25px 25px 0;">Cerca</button>
                 </div>
             </form>
 

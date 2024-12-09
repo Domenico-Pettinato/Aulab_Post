@@ -64,12 +64,11 @@ Route::middleware('revisor')->group(function () {
 Route::get('/article/search', [PublicController::class, 'articleSearch'])->name('article.search');
 
 // rotta per il writer
-Route::middleware('writer')->group(function () {
-    
-    
-});
 
 Route::get('/writer/Dashboard', [WriterController::class, 'dashboard'])->name('writer.dashboard');
-Route::get(('/article/edit/{article}'), [WriterController::class, 'edit'])->name('article.edit');
-Route::put(('/article/update/{article}'), [WriterController::class, 'update'])->name('article.update');
-Route::delete(('/article/destroy/{article}'), [WriterController::class, 'destroy'])->name('article.destroy');
+
+Route::middleware('writer')->group(function () {
+    Route::get(('/article/edit/{article}'), [WriterController::class, 'edit'])->name('article.edit');
+    Route::put(('/article/update/{article}'), [WriterController::class, 'update'])->name('article.update');
+    Route::delete(('/article/destroy/{article}'), [WriterController::class, 'destroy'])->name('article.destroy');
+});

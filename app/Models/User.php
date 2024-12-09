@@ -12,11 +12,6 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
-    public function articles()
-    {
-        return $this->hasMany(\App\Models\Article::class);
-    }
-
     /**
      * The attributes that are mass assignable.
      *
@@ -55,5 +50,14 @@ class User extends Authenticatable
             'password' => 'hashed',
             'role_status' => 'string',
         ];
+    }
+
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

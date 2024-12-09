@@ -19,10 +19,10 @@
                         @else
                         <p class="card-text small text-secondary">Nessuna categoria</p>
                         @endif
-                        <p class="small text-muted my-0">
+                        <!-- <p class="small text-muted my-0">
                             @foreach ($article->tags as $tag)
                             #{{ $tag->name }}
-                            @endforeach
+                            @endforeach -->
 
                         <p class="card-text">Autore: {{ $article->user->name }}</p>
                         <p class="card-text small text-muted">Tag:

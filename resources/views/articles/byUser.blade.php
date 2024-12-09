@@ -1,9 +1,9 @@
 <x-layout>
     <div class="container mt-5 text-center">
-
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
             <h2 class="display-2">Articoli dell'utente "{{$user->name}}"</h2>
         </div>
+
         <!-- card -->
         <div class="container mt-5">
             <div class="row">
@@ -22,10 +22,10 @@
                             @else
                             <p class="card-text small text-secondary">Nessuna categoria</p>
                             @endif
-                            <p class="small text-muted my-0">
+                            <!-- <p class="small text-muted my-0">
                                 @foreach ($article->tags as $tag)
                                 #{{ $tag->name }}
-                                @endforeach
+                                @endforeach -->
 
                             <p class="card-text">Autore: {{ $article->user->name }}</p>
                             <p class="card-text small text-muted">Tag:

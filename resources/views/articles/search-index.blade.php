@@ -3,7 +3,6 @@
         <div class="row mb-4">
             <div class="col-12 text-center">
                 <h1 class="display-4 text-primary">Articoli trovati per "{{$query}}"</h1>
-                <p class="lead text-muted">Risultati della ricerca</p>
             </div>
         </div>
 
@@ -11,7 +10,7 @@
             @foreach ($articles as $article)
             <div class="col-12 col-sm-6 col-lg-4">
                 <div class="card h-100 shadow-sm border-0">
-                    <img src="{{ Storage::url($article->image) }}" class="card-img-top" alt="Immagine dell'articolo {{$article->title}}">
+                <img src="https://picsum.photos/{{ 300 + $article->id }}" class="card-img-top" alt="Immagine di esempio per {{$article->title}}">
 
                     <div class="card-body">
                         <h5 class="card-title text-truncate">{{$article->title}}</h5>
@@ -25,17 +24,17 @@
                         <p class="card-text small text-secondary">Nessuna categoria</p>
                         @endif
                        
-                        <p class= "small text-muted my-0">
+                        <!-- <p class= "small text-muted my-0">
                             @foreach ($article->tags as $tag)
                             #{{ $tag->name }}
                             @endforeach
-                        </p>
+                        </p> -->
                     </div>
 
                     <div class="card-footer bg-white d-flex justify-content-between align-items-center">
                         <div class="small text-muted">
-                            <p class="mb-1">Pubblicato il {{$article->created_at->format('d/m/Y')}}</p>
-                            <p class="mb-0">Da <a href="{{ route('articles.byuser', $article->user) }}" class="text-primary text-decoration-none">{{$article->user->name}}</a></p>
+                            <p class="mb-1">Pubblicato il {{$article->created_at->format('d/m/Y')}}</p><br>
+                            <p class="mb-0">Da <a href="{{ route('articles.byuser', $article->user) }}" class="text-primary text-decoration-none">{{$article->user->name}}</a></p><br>
                             <p class="card-text small text-muted">Tag:
                                 @foreach ($article->tags as $tag)
                                 #{{ $tag->name }}
