@@ -1,47 +1,52 @@
 <x-layout>
-<!-- validazione della registrazione -->
-<div class="col-12 mt-5 d-flex justify-content-center ">
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-        <form action="{{route('register')}}" method="POST" class="form">
+    <!-- Validazione della registrazione -->
+    <div class="d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+        <form action="{{ route('register') }}" method="POST" class="p-4 shadow-lg rounded " style="max-width: 400px; width: 100%;">
             @csrf
-            <div class="container">
-                <h1 class="h3 mb-3 fw-normal text-black"></h1>
-                <p class="mt-2 mb-4 text-black"></p>
+            <h1 class="h3 mb-4 text-center text-primary fw-bold">Register</h1>
 
-                <div class="form-floating mb-3 ">
-                    <input type="text" name="name" class="form-control" id="Name" placeholder="Enter Full Name" required>
-                    <label for="Name">Full Name</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                    <input type="text" placeholder="Enter Email" name="email" class="form-control" id="email" required>
-                   <label for="email">Email</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                    <input type="password" placeholder="Enter Password" name="password" class="form-control" id="password" required>
-                    <label for="password">Password</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                    <input type="password" placeholder="Repeat Password" name="password_confirmation" class="form-control" id="password_confirmation" required>
-                    <label for="password_confirmation">Repeat Password</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                    <p class="mt-3 mb-3 text-white">By creating an account you agree to our <a href="#" class="text-white">Terms & Privacy</a></p>
-                    <button type="submit" class="btn btn-primary w-100 py-2">Register</button>
-                    <p class="mt-3 mb-3 text-black"></p>
-                </div>
+            <!-- Messaggi di errore -->
+            @if ($errors->any())
+            <div class="alert alert-danger text-center" style="max-width: 100%;">
+                <ul class="mb-0" style="list-style: none; padding: 0;">
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
+            @endif
+
+            <!-- Campo Nome Completo -->
+            <div class="form-floating mb-3">
+                <input type="text" name="name" class="form-control" id="Name" placeholder="Enter Full Name" required>
+                <label for="Name">Full Name</label>
+            </div>
+
+            <!-- Campo Email -->
+            <div class="form-floating mb-3">
+                <input type="email" name="email" class="form-control" id="email" placeholder="Enter Email" required>
+                <label for="email">Email</label>
+            </div>
+
+            <!-- Campo Password -->
+            <div class="form-floating mb-3">
+                <input type="password" name="password" class="form-control" id="password" placeholder="Enter Password" required>
+                <label for="password">Password</label>
+            </div>
+
+            <!-- Campo Conferma Password -->
+            <div class="form-floating mb-3">
+                <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Repeat Password" required>
+                <label for="password_confirmation">Repeat Password</label>
+            </div>
+
+            <!-- Termini e Condizioni -->
+            <p class="text-muted small text-center mt-3">
+                By creating an account, you agree to our <a href="#" class="text-primary">Terms & Privacy</a>.
+            </p>
+
+            <!-- Pulsante di Registrazione -->
+            <button type="submit" class="btn btn-primary w-100 py-2">Register</button>
         </form>
     </div>
 </x-layout>
