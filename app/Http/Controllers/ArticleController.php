@@ -99,8 +99,8 @@ class ArticleController extends Controller
     {
         // Cerca l'articolo usando lo slug e carica i tag associati
         $article = Article::where('slug', $slug)->with('tags')->firstOrFail();
-    
         return view('articles.show', compact('article'));
+        
     }
     
     /**

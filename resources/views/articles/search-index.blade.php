@@ -1,6 +1,6 @@
 <x-layout>
-    <div class="container my-4">
-        <div class="row mb-4">
+    <div class="container mt-5">
+        <div class="row">
             <div class="col-12 text-center">
                 <h1 class="display-4 text-primary">Articoli trovati per "{{$query}}"</h1>
             </div>
@@ -10,7 +10,7 @@
             @foreach ($articles as $article)
             <div class="col-12 col-sm-6 col-lg-4">
                 <div class="card h-100 shadow-sm border-0">
-                <img src="https://picsum.photos/{{ 300 + $article->id }}" class="card-img-top" alt="Immagine di esempio per {{$article->title}}">
+                <img src="{{ asset('storage/' . $article->image) }}" class="img-fluid rounded-start card-img-top" alt="{{ $article->title }}">
 
                     <div class="card-body">
                         <h5 class="card-title text-truncate">{{$article->title}}</h5>

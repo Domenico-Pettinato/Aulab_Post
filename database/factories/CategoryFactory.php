@@ -10,17 +10,18 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class CategoryFactory extends Factory
 {
     public $categories = [
-        'News',
-        'Sports',
-        'Entertainment',
-        'Business',
-        'Technology',
-        'Health',
-        'Science',
-        'Politics',
-        'Travel',
-        'Food',
+        'Panettone',
+        'Pandoro',
+        'Pane Classico',
+        'Pizza Napoletana',
+        'Pizza Contemporanea',
+        'Pane Internazionale',
+        'Lievitati Salati',
+        'Ricette Senza Lievito',
+        'Ricette Gluten-Free',
+        'Dolci Lievitati',
     ];
+
     /**
      * Define the model's default state.
      *

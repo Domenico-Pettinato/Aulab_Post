@@ -14,13 +14,13 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $article->title }}</h5>
 
-                            @if ('$article->category')
+                            @if ('$article->user')
                             <p class="card-text small text-secondary">
-                                Categoria:
-                                <a href="{{ route('articles.bycategory', $article->category) }}" class="text-decoration-none text-capitalize">{{ $article->category->name }}</a>
+                                Utente:
+                                <a href="{{ route('articles.byuser', $article->user) }}" class="text-decoration-none text-capitalize">{{ $article->user->name }}</a>
                             </p>
                             @else
-                            <p class="card-text small text-secondary">Nessuna categoria</p>
+                            <p class="card-text small text-secondary">Nessun Utente</p>
                             @endif
                             <!-- <p class="small text-muted my-0">
                                 @foreach ($article->tags as $tag)

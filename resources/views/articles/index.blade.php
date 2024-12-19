@@ -1,6 +1,6 @@
 <x-layout>
     <!-- Card articoli -->
-    <div class="container my-5">
+    <div class="container mt-5">
         <div class="row g-4">
             @foreach ($articles as $article)
             <x-article-card :article="$article" />

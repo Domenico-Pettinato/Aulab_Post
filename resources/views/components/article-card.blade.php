@@ -1,6 +1,9 @@
 <div class="col-12 col-sm-6 col-lg-4 d-flex justify-content-center">
     <div class="card h-100 shadow-sm border-0" style="width: 18rem;">
-        <img src="https://picsum.photos/{{ 300 + $article->id }}" class="card-img-top" alt="Immagine di esempio per {{$article->title}}">
+
+       
+        <img src="{{ asset('storage/' . $article->image) }}" class="img-fluid rounded-start card-img-top" alt="{{ $article->title }}">
+      
 
         <div class="card-body">
             <h5 class="card-title text-truncate">{{ $article->title }}</h5>
@@ -27,7 +30,7 @@
         </div>
         <p class="card-subtitle mb-2 text-muted small">Tempo di lettura: {{ $article->readDuration() }} minuti</p>
         <div class="card-footer bg-white text-center">
-            <a href="{{ route('articles.show', ['article' => $article->slug]) }}" class="btn btn-outline-primary btn-sm">Leggi Articolo</a>
+            <a href="{{ route('articles.show', ['article' => $article->slug]) }}" class="btn btn-outline-dark btn-sm">Leggi Articolo</a>
         </div>
     </div>
 </div>

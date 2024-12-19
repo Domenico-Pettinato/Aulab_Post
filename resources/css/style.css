@@ -1,37 +1,110 @@
-html,body {
-    padding: 0;
+html,
+body {
+    padding-top: 50px;
     margin: 0;
-    font: 14px 'Open sans', sans-serif;
+    color: #333;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-color: #f7e9d7; Colore di sfondo */
+   
+    font-family: 'Arial', sans-serif; /* Font di testo */
+    background: url('nathan-dumlao-KMEqlxz3mKc-unsplash.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: #333;
 }
+
 h1 {
     margin: 0;
     margin-bottom: 20px;
-	font-size: 24px;
+    font-size: 24px;
 }
-/* form {
-    padding: 40px;
-    background: #DDD;
-    border: 4px solid #AAA;
-    width: 360px;
-    margin: 30px auto;
-} */
+
 input {
-	font: 14px 'Open Sans', sans-serif;
+    font-family: 'Arial', sans-serif; /* Font di testo */
     border: 2px solid #ccc;
     padding: 6px;
     display: block;
-	margin-bottom: 10px;
+    margin-bottom: 10px;
     width: 96%;
 }
+
 button {
-    font: 14px 'Open Sans', sans-serif;
+    font-family: 'Arial', sans-serif; /* Font di testo */
     background-color: #4285f4;
     color: white;
     padding: 6px;
     cursor: pointer;
     border: none;
     margin-top: 10px;
-	text-transform: uppercase;
+    text-transform: uppercase;
 }
 
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+form input[type="search"], form button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+/* hover delle immagini */
+
+.card-img-top {
+    transition: transform 0.4s ease-in-out;
+    /* Animazione fluida */
+    border: 3px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    width: auto;
+    margin: 10px auto;
+    height: auto;
+}
+
+.card-img-top:hover {
+    transform: scale(1.1);
+    /* Aumenta le dimensioni dell'immagine */
+}
+
+/* hover del tasto acquista */
+
+.btn-top {
+    transition: transform 0.3s ease-in-out;
+    /* Animazione fluida */
+}
+
+.btn-top:hover {
+    transform: scale(1.1);
+    /* Aumenta le dimensioni dell'immagine */
+}
+
+.card {
+    background: none;
+    border: none;
+    align-items: center;
+    width: auto;
+    margin: 10px;
+    height: auto;
+   /* background-color: #f7e9d7;  */
+    /* background: linear-gradient(120deg, #f5f5dc, #a67c52); */
+}
+
+.logo {
+    border-radius: 50%;
+    margin: 0;
+    padding: 0;
+}
+
+.sfondo {
+    border-radius: 10px;
+}
+
+.login {
+    background-image: url('login.jpg');
+}

@@ -1,4 +1,5 @@
 <x-layout>
+
     <!-- validazione del login -->
     @if ($errors->any())
     <div class=" alert alert-danger">
@@ -9,6 +10,7 @@
     @endif
 
     <div class="col-12 mt-5 d-flex justify-content-center">
+    
         <form method="POST" action="{{route('login')}}" class="form">
             @csrf
             <div class="container">

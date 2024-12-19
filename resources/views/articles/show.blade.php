@@ -1,34 +1,68 @@
-<x-layout 
-    :metaTitle="$article->title" 
-    :metaDescription="Str::limit($article->body, 150)" 
+<x-layout
+    :metaTitle="$article->title"
+    :metaDescription="Str::limit($article->body, 150)"
     :metaKeywords="$article->tags->pluck('name')->implode(', ')">
     <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6 mb-4">
-                <div class="card shadow-sm" style="border-radius: 8px; overflow: hidden;">
-                    <img src="https://picsum.photos/{{ 500 + $article->id }}" class="card-img-top" alt="Immagine di esempio" style="height: 250px; object-fit: cover;">
-                    <div class="card-body">
-                        <h4 class="card-title text-primary fw-bold">{{ $article->title }}</h4>
+            <div class="col-md-10 col-lg-8 mb-4">
+                <div class="card shadow-lg border-0" style="border-radius: 12px; overflow: hidden;">
+                    <!-- Immagine più grande -->
+                     @if ($article->image)
+                        <img src="{{ asset('storage/' . $article->image) }}" 
+                             class="card-img-top img-fluid" 
+                             alt="{{$article->title}}" 
+                             style="height: 400px; object-fit: cover;">
+                    @else
+                    <img src="https://picsum.photos/{{ 700 + $article->id }}" 
+                         class="card-img-top img-fluid" 
+                         alt="Immagine articolo" 
+                         style="height: 400px; object-fit: cover;">
+                    @endif
+                    
+                    <div class="card-body px-4 py-5">
+                        <!-- Titolo accattivante -->
+                        <h1 class="card-title text-dark fw-bold mb-3">{{ $article->title }}</h1>
+                        
+                        <!-- Categoria -->
                         @if ('$article->category')
-                            <p class="card-text small text-secondary">
-                                Categoria:
-                                <a href="{{ route('articles.bycategory', $article->category) }}" class="text-decoration-none text-capitalize">{{ $article->category->name }}</a>
+                            <p class="text-secondary mb-2">
+                                <span class="fw-semibold">Categoria:</span> 
+                                <a href="{{ route('articles.bycategory', $article->category) }}" 
+                                   class="text-decoration-none text-success text-capitalize">
+                                   {{ $article->category->name }}
+                                </a>
                             </p>
                         @else
-                            <p class="card-text small text-secondary">Nessuna categoria</p>
+                            <p class="text-secondary mb-2">Nessuna categoria</p>
                         @endif
-                        <p class="small text-muted my-0">
+                        
+                        <!-- Tag -->
+                        <div class="mb-3">
                             @foreach ($article->tags as $tag)
-                                #{{ $tag->name }}
+                                <span class="badge bg-light text-secondary me-1">#{{ $tag->name }}</span>
                             @endforeach
+                        </div>
+
+                        <!-- Autore -->
+                        <p class="small text-muted mb-4">
+                            <strong>Autore:</strong> {{ $article->user->name }}
                         </p>
-                        <p class="card-text small text-muted mb-2"><strong>Autore:</strong> {{ $article->user->name }}</p>
-                        <p class="card-text mb-2">{{ $article->body }}</p>
+
+                        <!-- Descrizione articolo -->
+                        <div class="card-text">
+                            <p class="text-dark" style="line-height: 1.8;">
+                                {{ Str::limit($article->body, 250) }}
+                            </p>
+                        </div>
                     </div>
+                    
+                    <!-- Footer con pulsanti -->
                     @if (Auth::user() && Auth::user()->is_revisor)
-                        <div class="card-footer text-center bg-light">
-                            <a href="{{ route('revisor.dashboard') }}" class="btn btn-outline-primary btn-sm mb-2">Torna alla lista degli articoli</a>
-                            <div class="d-flex justify-content-center gap-2 mt-3">
+                        <div class="card-footer  text-center py-3">
+                            <a href="{{ route('revisor.dashboard') }}" class="btn btn-outline-secondary btn-sm mb-2">
+                                Torna alla lista degli articoli
+                            </a>
+                            <div class="d-flex justify-content-center gap-3 mt-2">
                                 <form action="{{ route('revisor.acceptArticle', $article) }}" method="POST">
                                     @csrf
                                     <button type="submit" class="btn btn-success btn-sm">Accetta Articolo</button>
@@ -40,8 +74,8 @@
                             </div>
                         </div>
                     @else
-                        <div class="card-footer text-center bg-light">
-                            <a href="{{ route('articles.index') }}" class="btn btn-outline-primary btn-sm mb-2">Torna alla lista degli articoli</a>
+                        <div class="card-footer text-center py-3">
+                            <a href="/" class="btn btn-dark btn-sm">Torna alla lista degli articoli</a>
                         </div>
                     @endif
                 </div>
