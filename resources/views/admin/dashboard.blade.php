@@ -1,9 +1,9 @@
 <x-layout>
 
-    <div class="container-fluid p-5 bg-secondary-subtle text-center mt-5">
+    <div class="container p-5 text-center mt-5">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h1 class="display-2">Bentornato, Amministratore {{ Auth::user()->name }}</h1>
+                <h1 class="display-2">Bentornato Amministratore {{ Auth::user()->name }}</h1>
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
 
     {{-- @dd($adminRequest); --}}
 
-    <div class="container-fluid p-5 bg-secondary-subtle text-center mt-5">
+    <div class="container p-5  text-center">
         <div class="row justify-content-center">
             <div class="col-12">
                 <h1 class="display-2">Tutti i Tags</h1>
@@ -35,10 +35,10 @@
         </div>
     </div>
 
-    <div class="container-fluid p-5 bg-secondary-subtle text-center mt-5">
+    <div class="container p-5  text-center ">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h1 class="display-2">Tutte le Categorie</h1>
+                <h1 class="display-2 ">Tutte le Categorie</h1>
                 <form action="{{ route('admin.storeCategory') }}" method="POST">
                     @csrf
                     <input type="text" name="name" placeholder="Nuova categoria" class="form-control w-50 d-inline">
@@ -49,7 +49,7 @@
         </div>
     </div>
 
-    <div class="container-fluid p-5 bg-secondary-subtle text-center mt-5">
+    <div class="container p-5 text-center">
         <div class="row justify-content-center">
             <div class="col-12">
                 <h1 class="display-2">Richieste per il ruolo di Amministratore</h1>
@@ -58,7 +58,7 @@
         </div>
     </div>
 
-    <div class="container-fluid p-5 bg-secondary-subtle text-center mt-5">
+    <div class="container p-5  text-center">
         <div class="row justify-content-center">
             <div class="col-12">
                 <h1 class="display-2">Richieste per il ruolo di Revisore</h1>
@@ -67,7 +67,7 @@
         </div>
     </div>
 
-    <div class="container-fluid p-5 bg-secondary-subtle text-center mt-5">
+    <div class="container p-5  text-center">
         <div class="row justify-content-center">
             <div class="col-12">
                 <h1 class="display-2">Richieste per il ruolo di Redattore</h1>
@@ -77,8 +77,8 @@
     </div>
 
     <!-- Pulsante Homepage come Link -->
-    <div class="container mt-5">
-        <a href="{{ route('homepage') }}" class="btn btn-primary w-100 py-2">Homepage</a>
+    <div class="container mb-5 text-center">
+        <a href="{{ route('homepage') }}" class="btn btn-primary ">Homepage</a>
     </div>
 
 </x-layout>

@@ -21,13 +21,13 @@
         <div class="row justify-content-center">
             <div class="col-lg-10 col-md-12">
                 <!-- Titolo -->
-                <h1 class="display-4 text-center text-success fw-bold mb-4">Benvenuti su Impastando.it</h1>
+                <h1 class="display-4 text-uppercase text-center text-dark fw-bold mb-4">Impastando.it</h1>
 
                 <!-- Testo di benvenuto -->
-                <p class="lead text-center text-muted">
+                <h2 class="lead text-center text-muted">
                     ✨ **Benvenuti nel cuore della panificazione!** ✨ <br>
-                    Cari appassionati di lievito, farine e creatività culinaria, sono entusiasta di darvi il benvenuto in questo spazio unico: **il blog che nasce dalla passione di tutti voi!** ❤️
-                </p>
+                     **il blog che nasce dalla passione di tutti voi!** 
+                </h2>
 
                 <p class="text-center">
                     <em>

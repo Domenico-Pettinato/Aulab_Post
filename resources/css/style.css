@@ -1,5 +1,4 @@
-html,
-body {
+html,body {
     padding-top: 50px;
     margin: 0;
     color: #333;
@@ -8,12 +7,29 @@ body {
     background-position: center;
     /* background-color: #f7e9d7; Colore di sfondo */
    
-    font-family: 'Arial', sans-serif; /* Font di testo */
+    font-family: 'Pencerio-Hairline'; /* Font di testo */
     background: url('nathan-dumlao-KMEqlxz3mKc-unsplash.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #333;
+    font-weight:bolder;
+    /* background-size: cover;
+    color: #333; */
 }
 
+.login {
+    background: url('login.jpg') ;
+    background-size: cover;
+}
+
+
+@font-face {
+    font-family: 'Pencerio-Hairline';
+    src: url('../fonts/Pencerio-Hairline.woff2') format('woff2'),
+         url('../fonts/Pencerio-Hairline.woff') format('woff'),
+         url('../fonts/Pencerio-Hairline.ttf') format('truetype');
+    font-weight: 50;
+    font-display: swap;
+    font-style: normal;
+  }
+  
 h1 {
     margin: 0;
     margin-bottom: 20px;
@@ -105,6 +121,19 @@ form input[type="search"], form button {
     border-radius: 10px;
 }
 
-.login {
-    background-image: url('login.jpg');
-}
+/* Modifica la larghezza del menu a tendina */
+.custom-dropdown {
+    max-width: 5px;  /* Puoi cambiare questa larghezza */
+    max-height: 40px;  /* Puoi cambiare questa altezza */
+    background-color: transparent; /* Colore di sfondo chiaro */
+    border: none;
+  }
+  
+  /* Cambia la dimensione del testo nel menu a tendina */
+  .custom-dropdown .dropdown-item {
+    font-size: 1.1rem;  /* Imposta la dimensione del testo */
+    padding: 0px 25px ;  /* Puoi regolare il padding */
+    background-color: transparent; /* Colore di sfondo chiaro */
+  }
+
+  

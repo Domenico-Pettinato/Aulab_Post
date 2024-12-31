@@ -22,12 +22,12 @@
             </td>
             <td>{{ $article->created_at->format('d/m/Y') }}</td>
             <td>
-                <a href="{{route('articles.show', $article)}}" class="btn btn-primary">Leggi Articolo</a>
-                <a href="{{route('articles.edit', $article)}}" class="btn btn-primary">Modifica Articolo</a>
-                <form action="{{route('articles.destroy', $article)}}" method="POST" class="btn btn-danger">
+                <a href="{{ route('articles.show', $article) }}" class="btn btn-primary bi bi-book"></a>
+                <a href="{{ route('articles.edit', $article) }}" class="btn btn-success bi bi-pencil-square"></a>
+                <form action="{{ route('articles.destroy', $article) }}" method="POST" class="d-inline">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Elimina Articolo</button>
+                    <button type="submit" class="btn btn-danger bi bi-trash3"></button>
                 </form>
             </td>
         </tr>

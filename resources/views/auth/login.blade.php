@@ -29,7 +29,7 @@
             <!-- Checkbox Remember Me -->
             <div class="form-check text-start mb-3">
                 <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-                <label class="form-check-label text-muted" for="flexCheckDefault">Remember me</label>
+                <label class="form-check-label text-primary" for="flexCheckDefault">Remember me</label>
             </div>
 
             <!-- Pulsante di Login -->

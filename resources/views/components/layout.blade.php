@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- metadati per SEO -->
     <title>{{ $metaTitle ?? 'Impastando.it' }}</title>
-    <meta name="description" content="{{ $metaDescription ?? 'Descrizione di default' }}">
+    <meta name="description" content="{{ $metaDescription ?? 'Panificazione per tutti' }}">
     <meta name="keywords" content="{{ $metaKeywords ?? '' }}">
     <!-- Collegamento di Vite per gli asset principali -->
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/script.js'])
@@ -19,7 +19,6 @@
     <main>
         <div class="min-vh-100">
             {{ $slot }}
-            
         </div>
     </main>
     <x-footer />

@@ -28,7 +28,7 @@
                             <p class="text-secondary mb-2">
                                 <span class="fw-semibold">Categoria:</span> 
                                 <a href="{{ route('articles.bycategory', $article->category) }}" 
-                                   class="text-decoration-none text-success text-capitalize">
+                                   class="text-decoration-none text-dark text-capitalize">
                                    {{ $article->category->name }}
                                 </a>
                             </p>
@@ -39,7 +39,7 @@
                         <!-- Tag -->
                         <div class="mb-3">
                             @foreach ($article->tags as $tag)
-                                <span class="badge bg-light text-secondary me-1">#{{ $tag->name }}</span>
+                                <span class="badge bg-light text-danger me-1">#{{ $tag->name }}</span>
                             @endforeach
                         </div>
 
@@ -51,7 +51,7 @@
                         <!-- Descrizione articolo -->
                         <div class="card-text">
                             <p class="text-dark" style="line-height: 1.8;">
-                                {{ Str::limit($article->body, 250) }}
+                                {{$article->body}}
                             </p>
                         </div>
                     </div>

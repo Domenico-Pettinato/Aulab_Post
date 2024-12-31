@@ -17,7 +17,7 @@
     </div>
 @endif
 
-    <div class="container-fluid p-5  text-center mt-5">
+    <div class="container p-5  text-center">
         <div class="row justify-content-center">
             <div class="col-12">
                 <h1 class="display-2">Articoli in attesa di revisione</h1>
@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <div class="container-fluid p-5  text-center mt-5">
+    <div class="container p-5  text-center">
         <div class="row justify-content-center">
             <div class="col-12">
                 <h1 class="display-2">Articoli pubblicati</h1>
@@ -35,7 +35,7 @@
         </div>
     </div>
 
-    <div class="container-fluid p-5  text-center mt-5">
+    <div class="container p-5  text-center">
         <div class="row justify-content-center">
             <div class="col-12">
                 <h1 class="display-2">Articoli rifiutati</h1>

@@ -1,4 +1,4 @@
-<h2 class="display-4 text-center my-5 text-uppercase text-success border-bottom pb-3">Ultime Ricette Pubblicate</h2>
+<h2 class="display-4 text-center my-5 text-uppercase text-dark fw-bold border-bottom pb-3">Ultime Ricette Pubblicate</h2>
 <div class="row g-4">
     @foreach ($articles as $article)
     <div class="col-lg-4 col-md-6">
@@ -12,7 +12,7 @@
             <!-- Corpo della card -->
             <div class="card-body d-flex flex-column justify-content-between">
                 <div>
-                    <h5 class="card-title text-primary fw-bold">{{ $article->title }}</h5>
+                    <h5 class="card-title text-dark fw-bold">{{ $article->title }}</h5>
                     <p class="card-text text-muted small mb-2">
                         <strong>Autore:</strong> {{ $article->user->name }}
                     </p>

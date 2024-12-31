@@ -1,4 +1,4 @@
-<h2 class="display-4 text-center my-5 text-uppercase text-success border-bottom pb-3">Articoli in Evidenza</h2>
+<h2 class="display-4 text-center my-5 text-uppercase text-dark fw-bold border-bottom pb-3">Articoli in Evidenza</h2>
 <div id="carouselFeatured" class="carousel slide shadow-lg rounded overflow-hidden" data-bs-ride="carousel">
     <!-- Indicators -->
     <div class="carousel-indicators">
@@ -15,7 +15,7 @@
                 <img src="{{ asset('storage/' . $article->image) }}" class="img-fluid rounded card-img-top" alt="{{ $article->title }}" style="height: 400px; object-fit: cover;">
 
                 <div class="card-body  p-4 text-center">
-                    <h5 class="card-title fw-bold text-primary">{{ $article->title }}</h5>
+                    <h5 class="card-title fw-bold text-dark">{{ $article->title }}</h5>
                     <p class="text-muted small">{{ \Illuminate\Support\Str::limit($article->description, 100, '...') }}</p>
                     <a href="{{ route('articles.show', $article->slug) }}" class="btn btn-success px-4 py-2 mt-2">Leggi di più</a>
                 </div>

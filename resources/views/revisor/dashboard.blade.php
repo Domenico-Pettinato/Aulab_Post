@@ -1,5 +1,5 @@
 <x-layout>
-<div class="container-fluid p-5  text-center mt-5">
+<div class="container p-5  text-center mt-5">
         <div class="row justify-content-center">
             <div class="col-12">
                 <h1 class="display-2">Bentornato,<br> revisore {{ Auth::user()->name }}!</h1>
@@ -17,7 +17,7 @@
     </div>
 @endif
 
-    <div class="container-fluid p-5  text-center mt-5">
+    <div class="container p-5  text-center">
         <div class="row justify-content-center">
             <div class="col-12">
                 <h1 class="display-2">Articoli da revisionare</h1>
@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <div class="container-fluid p-5 text-center mt-5">
+    <div class="container p-5 text-center">
         <div class="row justify-content-center">
             <div class="col-12">
                 <h1 class="display-2">Articoli confermati</h1>
@@ -35,7 +35,7 @@
         </div>
     </div>
 
-    <div class="container-fluid p-5 text-center mt-5">
+    <div class="container p-5 text-center">
         <div class="row justify-content-center">
             <div class="col-12">
                 <h1 class="display-2">Articoli rifiutati</h1>
