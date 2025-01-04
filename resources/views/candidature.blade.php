@@ -8,7 +8,7 @@
         </div>
     @endif
 
-    <div class="container-fluid py-5 bg-light text-center mt-5">
+    <div class="container-fluid py-5 text-center mt-5">
         <div class="row justify-content-center">
             <div class="col-12">
                 <h1 class="mb-4">Pagina Candidature</h1>
@@ -17,7 +17,7 @@
                     <div class="row justify-content-center">
                         <div class="col-md-6 col-12">
                             <!-- Form per l'invio dei dati -->
-                            <form method="POST" action="{{ route('candidature.submit') }}" class="p-4 border rounded-3 bg-white shadow">
+                            <form method="POST" action="{{ route('candidature.submit') }}" class="p-4 border rounded-3  shadow">
                                 @csrf
                                 
                                 <!-- Selezione Ruolo -->

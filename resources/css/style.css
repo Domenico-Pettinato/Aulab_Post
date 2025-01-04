@@ -1,6 +1,5 @@
 html,body {
-    padding-top: 50px;
-    margin: 0;
+    padding-top: 10px;
     color: #333;
     background-size: cover;
     background-repeat: no-repeat;
@@ -113,9 +112,13 @@ form input[type="search"], form button {
 
 .logo {
     border-radius: 50%;
-    margin: 0;
-    padding: 0;
+    position: fixed;
+    top: 30px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
 }
+
 
 .sfondo {
     border-radius: 10px;
