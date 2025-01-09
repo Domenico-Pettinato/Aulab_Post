@@ -22,6 +22,7 @@
         </div>
     </main>
     <x-footer />
+    <x-overlay />
 </body>
 
 </html>

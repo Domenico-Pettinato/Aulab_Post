@@ -16,13 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('load', () => {
         console.log('Esecuzione animazioni al caricamento');
-        
+
         const elements = document.querySelectorAll('.fade-in');
         if (elements.length === 0) {
             console.warn('Nessun elemento con classe .fade-in trovato!');
             return;
         }
-    
+
         elements.forEach((el, index) => {
             setTimeout(() => {
                 el.style.opacity = '1';
@@ -32,6 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
+    // Mostra l'overlay e lo spinner
+    console.log('overlay e spinner');
+    document.getElementById('overlay-form').addEventListener('submit', function (e) {
+        document.getElementById('loading-overlay').classList.remove('d-none');
+    });
 });
 
 

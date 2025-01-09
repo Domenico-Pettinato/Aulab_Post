@@ -1,7 +1,7 @@
 <x-layout>
     <!-- Validazione della registrazione -->
     <div class="d-flex justify-content-center align-items-center" style="min-height: 90vh;">
-        <form action="{{ route('register') }}" method="POST" class="p-4 shadow-lg rounded " style="max-width: 400px; width: 100%;">
+        <form method="POST" action="{{ route('register') }}" class="p-4 shadow-lg rounded" style="max-width: 400px; width: 100%;" id="overlay-form">
             @csrf
             <h1 class="h3 mb-4 text-center text-primary fw-bold">Register</h1>
 

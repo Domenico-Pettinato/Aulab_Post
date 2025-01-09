@@ -1,5 +1,4 @@
 <x-layout>
-
     <!-- Validazione del login -->
     @if ($errors->any())
     <div class="alert alert-danger text-center mx-auto mt-3" style="max-width: 500px;">
@@ -10,7 +9,7 @@
     @endif
 
     <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
-        <form method="POST" action="{{ route('login') }}" class="p-4 shadow-lg rounded " style="max-width: 400px; width: 100%;">
+        <form method="POST" action="{{ route('login') }}" class="p-4 shadow-lg rounded " style="max-width: 400px; width: 100%;" id="overlay-form">
             @csrf
             <h1 class="h3 mb-4 text-center text-primary fw-bold">Sign In</h1>
 
@@ -33,7 +32,7 @@
             </div>
 
             <!-- Pulsante di Login -->
-            <button class="btn btn-primary w-100 py-2" type="submit">Sign In</button>
+            <button class="btn btn-primary w-100 py-2" type="submit" id="sign-in-button">Sign In</button>
 
             <!-- Messaggio di successo -->
             @if (session('success'))

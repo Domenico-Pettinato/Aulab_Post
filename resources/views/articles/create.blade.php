@@ -13,8 +13,8 @@
                 </div>
             @endif
 
-            <form method="POST" action="{{ route('articles.store') }}" enctype="multipart/form-data" class="needs-validation">
-                @csrf
+            <form id="overlay-form" method="POST" action="{{ route('articles.store') }}" enctype="multipart/form-data" >
+                @csrf 
 
                 <div class="mb-3">
                     <label for="title" class="form-label">Titolo</label>
@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="body" class="form-label">Contenuto</label>
+                    <label for="body" class="form-label">Corpo del Testo</label>
                     <textarea class="form-control @error('body') is-invalid @enderror" id="body" name="body" rows="4" required>{{ old('body') }}</textarea>
                     @error('body')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-outline-secondary btn-sm">Invia</button>
+                    <button type="submit" class="btn btn-outline-secondary btn-sm">Crea Articolo</button>
                 </div>
             </form>
         </div>

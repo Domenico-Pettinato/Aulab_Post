@@ -8,10 +8,10 @@
         </div>
     @endif
 
-    <div class="container-fluid py-5 text-center mt-5">
+    <div class="container-fluid py-5 text-center mt-3">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h1 class="mb-4">Pagina Candidature</h1>
+                <h1 class="display-2 mb-4">Pagina Candidature</h1>
                 <p class="text-muted mb-4">Compila il modulo per inviare la tua candidatura alle posizioni disponibili</p>
                 <div class="container">
                     <div class="row justify-content-center">
@@ -56,5 +56,4 @@
             </div>
         </div>
     </div>
-
 </x-layout>

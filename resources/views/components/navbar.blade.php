@@ -36,6 +36,7 @@
     <div class="container d-flex flex-wrap justify-content-center">
       <!-- menu link -->
       <ul class="nav col-12 col-md-auto justify-content-center text-small">
+        <!-- Home -->
         <li>
           <a href="/" class="nav-link text-secondary">
             <svg class="bi d-block mx-auto mb-1" width="24" height="24">
@@ -46,9 +47,11 @@
         </li>
 
         <!-- Barra di ricerca Articoli -->
+        @if (!request()->routeIs('login') && !request()->routeIs('register'))
         <div>
           <x-search />
         </div>
+        @endif
 
         <!-- Writer Dashboard -->
         @if (Auth::check() && Auth::user()->is_writer)
@@ -58,6 +61,16 @@
               <use xlink:href="#speedometer2" />
             </svg>
             Dashboard
+          </a>
+        </li>
+
+        <!-- Elenco Articoli -->
+        <li>
+          <a href="{{ route('articles.index') }}" class="nav-link text-secondary">
+            <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+              <use xlink:href="#table" />
+            </svg>
+            Elenco Articoli
           </a>
         </li>
 
@@ -96,15 +109,6 @@
         </li>
         @endif
 
-        <li>
-          <a href="{{ route('articles.index') }}" class="nav-link text-secondary">
-            <svg class="bi d-block mx-auto mb-1" width="24" height="24">
-              <use xlink:href="#table" />
-            </svg>
-            Elenco Articoli
-          </a>
-        </li>
-
         @guest
         <li>
           <a href="{{route('candidature')}}" class="nav-link text-secondary">
@@ -115,7 +119,6 @@
           </a>
         </li>
         @endguest
-
       </ul>
     </div>
   </div>
@@ -126,7 +129,7 @@
       <!-- Auth Links -->
       @auth
       <div class="text-end">
-        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+        <form id="overlay-form" method="POST" action="{{ route('logout') }}">
           @csrf
           <button type="submit" class="btn btn-success text-dark me-3">
             Logout

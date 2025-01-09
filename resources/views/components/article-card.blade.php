@@ -24,20 +24,23 @@
 
                 <p class="card-text small text-muted mb-2">
                     Autore:
-                    <a href="{{ route('articles.byuser', $article->user) }}" class="text-primary text-decoration-none">{{ $article->user->name }}</a>
+                    <a href="{{ route('articles.byuser', $article->user) }}" class="text-decoration-none text-capitalize">{{ $article->user->name }}</a>
                 </p>
 
                 <p class="card-text small text-muted mb-2">Tag:
                     @foreach ($article->tags as $tag)
-                    #{{ $tag->name }}
+                    <span class="text-primary">#{{ $tag->name }}</span>
                     @endforeach
                 </p>
-                <p class="card-text text-muted small mb-2">Tempo di lettura: {{ $article->readDuration() }} minuti</p>
+                <p class="card-text text-muted small mb-2">
+                    Tempo di lettura:
+                    <span class="text-primary">{{ $article->readDuration() }} minuti</span>
+                </p>
             </div>
-            
-            
+
+
             <div class="card-footer bg-transparent text-center">
-                <a href="{{ route('articles.show', ['article' => $article->slug]) }}" class="btn btn-primary w-100">Leggi Ricetta</a>
+                <a href="{{ route('articles.show', ['article' => $article->slug]) }}" class="btn btn-primary w-100">Leggi la Ricetta</a>
             </div>
         </div>
     </div>

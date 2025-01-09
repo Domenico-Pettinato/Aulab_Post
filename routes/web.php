@@ -64,7 +64,6 @@ Route::middleware('revisor')->group(function () {
 Route::get('/article/search', [PublicController::class, 'articleSearch'])->name('article.search');
 
 // rotta per il writer
-
 Route::get('/writer/Dashboard', [WriterController::class, 'dashboard'])->name('writer.dashboard');
 
 Route::middleware('writer')->group(function () {
