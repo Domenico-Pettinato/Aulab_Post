@@ -12,6 +12,6 @@ FROM php:8.1-fpm
 COPY --from=builder /usr/local/etc/php /usr/local/etc/php
 WORKDIR /var/www/html
 COPY . .
-RUN composer install --no-dev --optimize-autoloader
+# RUN composer install --no-dev --optimize-autoloader
 
 CMD ["php-fpm"]
