@@ -10,9 +10,10 @@
             </div>
 
             <!-- Corpo della card -->
-            <div class="card-body d-flex flex-column justify-content-between">
-                <div>
-                    <h5 class="card-title text-dark fw-bold">{{ $article->title }}</h5>
+            <div class="container mt-5">
+                <div class="row g-4">
+                    <h1 class="card-title text-dark fw-bold mb-3">{{ $article->title }}</h1>
+                    <!-- <h5 class="card-title text-dark fw-bold">{{ $article->title }}</h5> -->
                     <p class="card-text text-muted small mb-2">
                         <strong>Autore:</strong> {{ $article->user->name }}
                     </p>
