@@ -1,17 +1,30 @@
-# Stage 1: Build dependencies
-FROM php:8.2-fpm as builder
+# Immagine base
+FROM php:8.2-fpm
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    libpng-dev libonig-dev libxml2-dev libzip-dev git zip unzip curl \
-    && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+# Installa le estensioni PHP richieste
+RUN apt-get update && apt-get install -y \
+    libzip-dev unzip git curl \
+    && docker-php-ext-install pdo pdo_mysql zip \
+    && docker-php-ext-enable pdo_mysql
 
-# Stage 2: Application setup
-FROM php:8.1-fpm
+# Installa Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-COPY --from=builder /usr/local/etc/php /usr/local/etc/php
+# Imposta la directory di lavoro
 WORKDIR /var/www/html
-COPY . .
-# RUN composer install --no-dev --optimize-autoloader
 
-CMD ["php-fpm"]
+# Copia i file del progetto nel container
+COPY . .
+
+# Installa le dipendenze di Laravel
+RUN composer install --no-dev --optimize-autoloader
+
+# Imposta i permessi per Laravel
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+
+# Esporta la porta utilizzata dall'applicazione
+EXPOSE 8000
+
+# Imposta il comando per avviare Laravel
+CMD php artisan serve --host=0.0.0.0 --port=${PORT:-8000}
