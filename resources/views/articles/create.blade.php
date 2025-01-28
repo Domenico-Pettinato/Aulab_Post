@@ -64,7 +64,7 @@
                     @enderror
                 </div>
 
-                <div class="d-grid">
+                <div class="d-grid gap-2 col-6 mx-auto">
                     <button type="submit" class="btn btn-outline-secondary btn-sm">Crea Articolo</button>
                 </div>
             </form>
