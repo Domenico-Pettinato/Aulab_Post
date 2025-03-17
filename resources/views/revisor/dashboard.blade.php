@@ -1,12 +1,5 @@
 <x-layout>
-<div class="container p-5  text-center mt-5">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <h1 class="display-2">Bentornato,<br> revisore {{ Auth::user()->name }}!</h1>
-            </div>
-        </div>
-    </div>
-
+    
   <!-- Messaggio di conferma  -->
 @if (session('message'))
     <div class="d-flex justify-content-center mt-3">
@@ -16,6 +9,16 @@
         </div>
     </div>
 @endif
+
+<div class="container p-5  text-center mt-5">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h1 class="display-2">Bentornato,<br> revisore {{ Auth::user()->name }}!</h1>
+            </div>
+        </div>
+    </div>
+
+
 
     <div class="container p-5  text-center">
         <div class="row justify-content-center">

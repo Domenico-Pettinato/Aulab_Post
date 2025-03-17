@@ -21,7 +21,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-10 col-md-12 mt-5">
                 <!-- Titolo -->
-                <h1 class="display-4 text-uppercase text-center text-dark fw-bold mb-3">Impastando.it</h1>
+                <h1 class="display-4 text-uppercase text-center text-dark fw-bold mb-3 ">Impastando.it</h1>
 
                 <!-- Testo di benvenuto -->
                 <h2 class="lead text-center text-muted">

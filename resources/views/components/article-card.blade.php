@@ -32,6 +32,7 @@
                     <span class="text-primary">#{{ $tag->name }}</span>
                     @endforeach
                 </p>
+                
                 <p class="card-text text-muted small mb-2">
                     Tempo di lettura:
                     <span class="text-primary">{{ $article->readDuration() }} minuti</span>
