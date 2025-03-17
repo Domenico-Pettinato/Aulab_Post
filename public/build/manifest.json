@@ -1,0 +1,29 @@
+{
+  "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": {
+    "file": "assets/bootstrap-icons-BOrJxbIo.woff",
+    "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff"
+  },
+  "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2": {
+    "file": "assets/bootstrap-icons-BtvjY1KL.woff2",
+    "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-G1f9Ad96.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/css/login.jpg": {
+    "file": "assets/login-CZD76BWp.jpg",
+    "src": "resources/css/login.jpg"
+  },
+  "resources/css/nathan-dumlao-KMEqlxz3mKc-unsplash.jpg": {
+    "file": "assets/nathan-dumlao-KMEqlxz3mKc-unsplash-Cs1HLqhh.jpg",
+    "src": "resources/css/nathan-dumlao-KMEqlxz3mKc-unsplash.jpg"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-B1kwtVoN.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}
